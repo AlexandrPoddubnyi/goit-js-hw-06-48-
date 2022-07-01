@@ -12,3 +12,18 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const makeListOfImageRow = image => {
+  return `<li><img  src= ${image.url} alt= '${image.alt}' /></li>`;
+};
+
+console.log(images);
+console.log(makeListOfImageRow(images[0]));
+const listElement = document.querySelector('.gallery');
+const makeListOfImagesElements = images
+  .map(makeListOfImageRow)
+  .join('');
+
+listElement.insertAdjacentHTML('beforeend', makeListOfImagesElements);
+console.log(makeListOfImagesElements);
+listElement.setAttribute("style", "list-style:none; display: flex-box;");
